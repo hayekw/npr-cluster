@@ -1,28 +1,14 @@
 portal:
-  image: nginx
+  image: nginx-php-fpm
   ports:
-   - "8080:80"
-  volumes:
-   - /home/admin/compose-haproxy-web/cluster/default.conf:/etc/nginx/conf.d/default.conf
+   - "80:80"
   links:
-   - tomcatOne:tomcat1
-   - tomcatTwo:tomcat2
-   - tomcatThree:tomcat3
-tomcatOne:
-  image: tomcat
-  volumes:
-   - /home/admin/compose-haproxy-web/cluster/server.xml:/usr/local/tomcat/conf/server.xml
-   - /home/admin/compose-haproxy-web/cluster/ROOT:/usr/local/tomcat/webapps/ROOT
-   - /home/admin/compose-haproxy-web/cluster/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
-tomcatTwo:
-  image: tomcat
-  volumes:
-   - /home/admin/compose-haproxy-web/cluster/server.xml:/usr/local/tomcat/conf/server.xml
-   - /home/admin/compose-haproxy-web/cluster/ROOT:/usr/local/tomcat/webapps/ROOT
-   - /home/admin/compose-haproxy-web/cluster/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
-tomcatThree:
-  image: tomcat
-  volumes:
-   - /home/admin/compose-haproxy-web/cluster/server.xml:/usr/local/tomcat/conf/server.xml
-   - /home/admin/compose-haproxy-web/cluster/ROOT:/usr/local/tomcat/webapps/ROOT
-   - /home/admin/compose-haproxy-web/cluster/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+   - payaraOne:payara1
+   - payaraTwo:payara2
+   - payaraThree:payara3
+payaraOne:
+  image: docker-payaraserver-full
+payaraTwo:
+  image: docker-payaraserver-full
+payaraThree:
+  image: docker-payaraserver-full
