@@ -1,3 +1,10 @@
+
+db:
+  image: mariadb
+  hostname: mariadb
+  ports:
+    - 3306:3306
+
 portal:
   image: nginx-php-fpm
   ports:
@@ -37,7 +44,3 @@ payaraThree:
     - /home/admin/projects/npr-cluster/webapp/test/target/test:/opt/payara41/deployments/ROOT
   links:
     - "db: mariadb"
-db:
-  image: mariadb
-  ports:
-    - 3306:3306
