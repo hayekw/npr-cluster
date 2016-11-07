@@ -8,16 +8,24 @@
 <h1>JDBC Connection example</h1>
 
 <%
+    Connection con = null;
     try {
-        java.sql.Connection con;
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://mariadb/mysql", "root", "test");
         out.println ("database successfully opened.");
-        out.println("hostname: " + InetAddress.getLocalHost().getHostName());
-        out.println ("IP: " + InetAddress.getLocalHost().getAddress());
+        out.println("hostname: " + InetAddress.getLocalHost().getHostAddress());
     }
     catch(SQLException e) {
         out.println("SQLException caught: " +e.getMessage());
+    }
+    finally {
+        if(con != null) {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 %>
 
