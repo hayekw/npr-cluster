@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo "Please specify the password for the web console of this Payara installation: "
 read -s PASSWORD
 echo "export PASSWORD="$PASSWORD > ./passfile
