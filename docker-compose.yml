@@ -6,31 +6,37 @@ portal:
    - payaraOne:payara1
    - payaraTwo:payara2
    - payaraThree:payara3
-   - db: mariadb
+   - "db: mariadb"
 payaraOne:
   image: docker-payaraserver-full
   ports:
     - 8080:8080
     - 8443:8443
     - 4848:4848
+  volumes:
+    - /home/admin/projects/npr-cluster/webapp/test/target/test:/opt/payara41/deployments/ROOT
   links:
-    - db: mariadb
+    - "db: mariadb"
 payaraTwo:
   image: docker-payaraserver-full
   ports:
     - 7080:8080
     - 7443:8443
     - 3848:4848
+  volumes:
+    - /home/admin/projects/npr-cluster/webapp/test/target/test:/opt/payara41/deployments/ROOT
   links:
-    - db: mariadb
+    - "db: mariadb"
 payaraThree:
   image: docker-payaraserver-full
   ports:
     - 6080:8080
     - 6443:8443
     - 2848:4848
+  volumes:
+    - /home/admin/projects/npr-cluster/webapp/test/target/test:/opt/payara41/deployments/ROOT
   links:
-    - db: mariadb
+    - "db: mariadb"
 db:
   image: mariadb
   ports:
