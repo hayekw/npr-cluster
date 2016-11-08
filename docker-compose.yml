@@ -25,7 +25,7 @@ payaraOne:
     - 8443:8443
     - 4848:4848
   volumes:
-    - /home/admin/projects/npr-cluster/webapps/test/target/test:/opt/payara41/deployments/ROOT
+    - /home/admin/projects/npr-cluster/webapps/spring-session/target/spring-session:/opt/payara41/deployments/ROOT
   links:
     - "db: mariadb"
     - redis:redis
@@ -36,7 +36,7 @@ payaraTwo:
     - 7443:8443
     - 3848:4848
   volumes:
-    - /home/admin/projects/npr-cluster/webapps/test/target/test:/opt/payara41/deployments/ROOT
+    - /home/admin/projects/npr-cluster/webapps/spring-session/target/spring-session:/opt/payara41/deployments/ROOT
   links:
     - "db: mariadb"
     - redis:redis
@@ -47,7 +47,7 @@ payaraThree:
     - 6443:8443
     - 2848:4848
   volumes:
-    - /home/admin/projects/npr-cluster/webapps/test/target/test:/opt/payara41/deployments/ROOT
+    - /home/admin/projects/npr-cluster/webapps/spring-session/target/spring-session:/opt/payara41/deployments/ROOT
   links:
     - "db: mariadb"
     - redis:redis

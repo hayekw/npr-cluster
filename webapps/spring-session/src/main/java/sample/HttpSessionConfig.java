@@ -27,7 +27,7 @@ public class HttpSessionConfig {
     public JedisConnectionFactory connectionFactory() {
         JedisConnectionFactory factory = new JedisConnectionFactory();
 //        factory.setHostName("192.168.116.128");
-        factory.setHostName("10.137.2.102");
+        factory.setHostName("redis");
         return factory;
     }
 }
