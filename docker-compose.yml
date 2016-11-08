@@ -3,6 +3,11 @@ db:
   hostname: mariadb
   ports:
     - 3306:3306
+redis:
+  image: redis
+  hostname: redis
+  ports: 
+    - 6379:6379
 portal:
   image: nginx-php-fpm
   ports:
@@ -12,6 +17,7 @@ portal:
    - payaraTwo:payara2
    - payaraThree:payara3
    - "db: mariadb"
+   - redis:redis
 payaraOne:
   image: docker-payaraserver-full
   ports:
@@ -22,6 +28,7 @@ payaraOne:
     - /home/admin/projects/npr-cluster/webapps/test/target/test:/opt/payara41/deployments/ROOT
   links:
     - "db: mariadb"
+    - redis:redis
 payaraTwo:
   image: docker-payaraserver-full
   ports:
@@ -32,6 +39,7 @@ payaraTwo:
     - /home/admin/projects/npr-cluster/webapps/test/target/test:/opt/payara41/deployments/ROOT
   links:
     - "db: mariadb"
+    - redis:redis
 payaraThree:
   image: docker-payaraserver-full
   ports:
@@ -42,3 +50,4 @@ payaraThree:
     - /home/admin/projects/npr-cluster/webapps/test/target/test:/opt/payara41/deployments/ROOT
   links:
     - "db: mariadb"
+    - redis:redis
