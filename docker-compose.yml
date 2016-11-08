@@ -1,10 +1,8 @@
-
 db:
   image: mariadb
   hostname: mariadb
   ports:
     - 3306:3306
-
 portal:
   image: nginx-php-fpm
   ports:
